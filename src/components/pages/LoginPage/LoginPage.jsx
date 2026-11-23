@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
+  const navigate = useNavigate();
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
@@ -9,8 +11,7 @@ export default function LoginPage() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(`Bonjour ${username}`);
-    setUsername("");
+    navigate(`/order/${username}`);
   };
 
   return (
